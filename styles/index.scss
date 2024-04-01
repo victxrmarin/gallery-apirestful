@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI';
+}
+
+body {
+    color: white;
+    background-color: rgb(8, 8, 8);
+}
+
+header {
+    height: 45vh;
+    width: 100%;
+    background: url(./assets/tokyo.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.103);
+
+        h2 {
+            margin-left: 2%;
+        }
+
+        ul {
+            display: flex;
+            padding-right: 10%;
+
+            li {
+                padding-top: 3px;
+                list-style: none;
+
+                a {
+                    font-weight: 200;
+                    padding-left: 10px;
+                    text-decoration: none;
+                    color: inherit;
+                }
+
+            }
+        }
+    }
+
+    section {
+        position: absolute;
+        top: 20%;
+        left: 43%;
+
+        h1 {
+            font-size: 44px;
+        }
+
+        h3 {
+            font-weight: 200;
+        }
+
+        #image-form {
+            input {
+                width: 79%;
+                height: 32px;
+                border: none
+            }
+
+            button {
+                height: 32px;
+                border: none;
+                background: rgb(132, 0, 255);
+                color: white;
+                padding: 0 1%;
+            }
+        }
+    }
+}
+
+main {
+    height: 100vh;
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+   #social-media a i {
+    text-decoration: none;
+    font-size: 28px;
+    text-align: center;
+   }
+
+    p {
+        text-align: center;
+    }
+}
