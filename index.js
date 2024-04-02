@@ -3,7 +3,7 @@ const fs = require("fs");
 const dotenv = require("dotenv")
 const cors = require('cors');
 
-const customer = require("./routes/customer");
+const gallery = require("./routes/gallery");
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,5 +15,5 @@ server.listen(PORT, () => {
   console.log("Server is running.");
 });
 
-server.use("/customer", customer);
+server.use("/gallery", gallery);
 

@@ -42,8 +42,9 @@ header nav ul li a {
 }
 header section {
   position: absolute;
-  top: 20%;
-  left: 43%;
+  top: 30%;
+  left: 50%;
+  translate: -50% -50%;
 }
 header section h1 {
   font-size: 44px;
