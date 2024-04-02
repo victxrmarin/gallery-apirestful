@@ -43,7 +43,7 @@ router.delete("/:id", (req, res) => {
 });
 
 function saveData() {
-  fs.writeFileSync(__dirname + "/data.json", JSON.stringfy(data, null, 2));
+  fs.writeFileSync(__dirname + "/data.json", JSON.stringify(data, null, 2));
 }
 
 module.exports = router;
