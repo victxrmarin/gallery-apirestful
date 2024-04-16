@@ -16,84 +16,30 @@ function showPhotos() {
     .catch(error => console.error(error));
 }
 
+const btn_post = document.getElementById("post_submit");
+// const btn_put = document.getElementById("put_submit");
+// const btn_delete = document.getElementById("delete_submit");
 
+btn_post.addEventListener('submit', (e)=> {
+   e.preventDefault()
 
+   const link = document.getElementById('post_link').value;
+   const title = document.getElementById('post_title').value;
+   const creator = document.getElementById('post_creator').value;
 
-// search.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const input = document.getElementById("search-bar");
-//   let inputed = input.value.toLowerCase();
+   fetch("http://localhost:3000/gallery", {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({id: autoIncrement, link: link, title: title, creator: creator})
+   })
+    .then((response)=> response.json())
+    .then((data) => {
+      showPhotos();
+      data.reset();
+    })
+    .catch(error => console.error('Erro:', error))
 
-//   fetch("http://localhost:3000/gallery", {
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       data.forEach((photo) => {
-//         photos.forEach((div)=> {
-//             let title = photo.title.toLowerCase();
-//             if(!title.incluedes(inputed)) {
-//                 div.style.display = "none";
-//             }
-//         })
-//       });
-//     });
-// });
-
-// Get the modal
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-var modal = document.getElementById("pput");
-var btn = document.getElementById("put");
-var span = document.getElementsByClassName("close")[1];
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-var modal = document.getElementById("pdelete");
-var btn = document.getElementById("delete");
-var span = document.getElementsByClassName("close")[2];
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+})
 
 
 showPhotos();

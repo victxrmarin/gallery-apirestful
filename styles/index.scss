@@ -123,122 +123,61 @@ footer {
     }
 }
 
-//modal
-
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-}
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #320083;
-    color: white;
-}
-
-.modal-body {
-   form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    div {
-        display: flex;
-        justify-content: right;
-        align-items: center;
-
-    };
-
-    div, div input {
-        width: 50%;
-    }
-
-    div label{
-        margin: 0;
-    }
-    div input {
-        margin-left: 10%;
-        border-radius: 5px;
-        border: none;
-    }
-
-    div input:focus {
-        border: none;
-    }
-
-    button {
-        border: none;
-        border-radius: 25px;
-        margin-top: 10px;
-        align-items: center;
-        height: 32px;
-        width: 20%;
-        background-color: #6200ff;
-    }
-
-    button:hover {
-        background-color: #fff;
-        color: #6200ff
-    }
-   }
-    padding: 3% 16px;
-}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #330185;
-    color: white;
-
-    h3 {
-        font-weight: 200;
-    }
-}
-
-.modal-content {
-    display: block;
-    position: relative;
-    background-color: #000000a4;
-    margin: auto;
-    padding: 0;
+dialog {
+    padding: 15px;
+    border-radius: 25px;
+    height: 400px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    translate: -50%;
     border: none;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s
+    background-color:black;
+    color: whitesmoke;
+    -webkit-box-shadow: 7px 10px 5px 0px rgba(255,255,255,0.5);
+    -moz-box-shadow: 7px 10px 5px 0px rgba(255,255,255,0.5);
+    box-shadow: 7px 10px 5px 0px rgba(98, 0, 255, 0.5);
+
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            text-align: center;
+            float: left;
+            input {
+                float: right;
+                border: none;
+                border-radius: 2px;
+                padding: 1px;
+            }
+        }
+
+        input[type="submit"] {
+            border: none;
+            border-radius: 25px;
+            width: 50%;
+            margin-left: 25%;
+        }
+    }
+
+    h4 {
+        font-weight: 100;
+    }
 }
 
+.x {
+    cursor: pointer;
+    color: whitesmoke;
+    padding-right: 10px;
+    float: right;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: bold;
+}
 
-@keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0
-    }
-
-    to {
-        top: 0;
-        opacity: 1
-    }
+.x:hover {
+    color:rgb(119, 0, 255)
 }

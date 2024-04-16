@@ -18,111 +18,54 @@
         <nav>
             <h2>FREE GALLERY</h2>
             <ul>
-                <li><a id="myBtn">Post</a></li>
-                <li><a id="put">Put</a></li>
-                <li><a id="delete">Delete</a></li>
+                <li><a onclick="post.showModal()">Post</a></li>
+                <li><a onclick="put.showModal()">Put</a></li>
+                <li><a onclick="delet.showModal()">Delete</a></li>
             </ul>
         </nav>
         <section>
             <h1>Your Gallery</h1>
             <h3>Free for everyone, everywhere.</h3>
-            <div id="search-bar">
-                <form id="image-form">
-                    <input type="text" name="text">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
+
         </section>
     </header>
     <main>
         <h1>Photos</h1>
+
+        <dialog id="post">
+            <button class="x" onclick="post.close()">X</button>
+            <h2>Post a photo:</h2>
+            <form id="post_submit">
+                <label for="link">Link:<input id="post_link"type="text" required></label>
+                <label for="title">Title:<input id="post_title" type="text" required></label>
+                <label for="creator">Id:<input id="post_creator" type="text" required></label>
+                <input type="submit">
+            </form>
+            <h4>Keep sure that all labels are correct.</h4>
+        </dialog>
+        <dialog id="put">
+            <button class="x" onclick="put.close()">X</button>
+            <h2>Edit a photo:</h2>
+            <form id="put_submit">
+                <label for="id">Id:<input id="post_id" type="number" required></label>
+                <label for="link">Link:<input id="post_link"type="text" required></label>
+                <label for="creator">Title:<input type="text" required></label>
+                <input id="put_submit" type="submit">
+            </form>
+            <h4>Keep sure that all labels are correct.</h4>
+        </dialog>
+        <dialog id="delet">
+            <button class="x" onclick="delet.close()">X</button>
+            <h2>Delete a photo:</h2>
+            <form id="delete_submit">
+                <label for="id">Id:<input type="number"></label>
+                <input id="delete_submit" type="submit">
+            </form>
+            <h4>Keep sure that all labels are correct.</h4>
+        </dialog>
         <section id="gallery">
 
         </section>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Post a new photo</h2>
-                </div>
-                <div class="modal-body">
-                    <form id="photo-post">
-                        <div>
-                            <label for="title">Title:</label>
-                            <input type="text" id="title" required>
-                        </div>
-                        <div>
-                            <label for="link">Link:</label>
-                            <input type="text" id="link" required>
-                        </div>
-                        <div>
-                            <label for="creator">Creator:</label>
-                            <input type="text" id="creator" required>
-                        </div>
-                        <button type="submit">Post</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <h3>keep sure you put all labels right.</h3>
-                </div>
-            </div>
-        </div>
-        <div id="pdelete" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Post a new photo</h2>
-                </div>
-                <div class="modal-body">
-                    <form id="photo-post">
-                        <div>
-                            <label for="title">Title:</label>
-                            <input type="text" id="title" required>
-                        </div>
-                        <div>
-                            <label for="link">Link:</label>
-                            <input type="text" id="link" required>
-                        </div>
-                        <div>
-                            <label for="creator">Creator:</label>
-                            <input type="text" id="creator" required>
-                        </div>
-                        <button type="submit">Post</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <h3>keep sure you put all labels right.</h3>
-                </div>
-            </div>
-        </div>
-        <div id="pput" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Post a new photo</h2>
-                </div>
-                <div class="modal-body">
-                    <form id="photo-post">
-                        <div>
-                            <label for="title">Title:</label>
-                            <input type="text" id="title" required>
-                        </div>
-                        <div>
-                            <label for="link">Link:</label>
-                            <input type="text" id="link" required>
-                        </div>
-                        <div>
-                            <label for="creator">Creator:</label>
-                            <input type="text" id="creator" required>
-                        </div>
-                        <button type="submit">Post</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <h3>keep sure you put all labels right.</h3>
-                </div>
-            </div>
-        </div>
     </main>
     <footer>
         <section id="social-media">
