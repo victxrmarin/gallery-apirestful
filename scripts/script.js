@@ -9,7 +9,19 @@ function showPhotos() {
       photos.innerHTML = "";
       data.forEach((photo) => {
         const div = document.createElement("div");
-        div.innerHTML = `<p>${photo.id} | ${photo.title}</p><img src='${photo.link}'><p>Pic tooked by: ${photo.creator}</p>`;
+        div.innerHTML = `<p>${photo.id} | ${photo.title}</p><img src='${photo.link}'>`;
+        div.addEventListener('click', () => {
+          const dialog = document.createElement('dialog')
+          div.appendChild(dialog)
+          dialog.innerHTML = `<button class="x" id="${photo.id}btn-close">X</button><p>Autor: ${photo.creator}</p><p>Descrição: ${photo.description}</p>`
+          const btn = document.getElementById(`${photo.id}btn-close`)
+          btn.addEventListener('click', () => {
+            console.log("clickado")
+            window.location.reload()
+          })
+          dialog.showModal()
+
+        })
         photos.appendChild(div);
       });
     })
@@ -64,23 +76,27 @@ btn_put.addEventListener('submit', (e) => {
   e.preventDefault();
   const id = document.getElementById('put_id').value
   const link = document.getElementById('put_link').value
-  const  title = document.getElementById('put_title').value
+  const title = document.getElementById('put_title').value
 
   fetch(`http://localhost:3000/gallery//${id}`, {
-      method: 'PUT',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: id, title: title, link: link}),
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id: id, title: title, link: link }),
   })
-      .then(response => { response.json()})
-      .then((data) => {
-          showPhotos();
-          data.reset()
-      })
-      .catch(error => console.error(error.message));
+    .then(response => { response.json() })
+    .then((data) => {
+      showPhotos();
+      data.reset()
+    })
+    .catch(error => console.error(error.message));
 }
 )
+
+function closeModal(modal) {
+  modal.close()
+}
 
 
 
