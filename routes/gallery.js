@@ -1,7 +1,11 @@
 const data = require("./data.json");
 const express = require("express");
 const fs = require("fs");
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger.json');
+
 const router = express.Router();
+router.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 router.post("/", (req, res) => {
   const newImage = req.body;
@@ -31,7 +35,7 @@ router.put("/:id", (req, res) => {
   data.Images[index].link =update.link || data.Images[index].link;
   data.Images[index].date = update.date || data.Images[index].date;
 
-  saveData(db);
+  saveData(data);
   return res.json({ message: "Update sucessfully." });
 });
 

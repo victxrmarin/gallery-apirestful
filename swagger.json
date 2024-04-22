@@ -1,129 +1,133 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Usuários e Cursos",
-    "version": "1.0.0",
-    "description": "API para cadastro de usuários e cursos correspondentes"
+    "title": "Gallery API",
+    "description": "API for managing images in a gallery",
+    "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
   "paths": {
-    "/usuarios": {
-      "get": {
-        "summary": "Obter a lista de usuários",
-        "responses": {
-          "200": {
-            "description": "Lista de usuários retornada com sucesso"
-          }
-        }
-      },
+    "/gallery": {
       "post": {
-        "summary": "Criar um novo usuário",
+        "summary": "Create a new image",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Usuario"
+                "type": "object",
+                "properties": {
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Usuário criado com sucesso"
+            "description": "Image created"
           },
           "400": {
-            "description": "Dados inválidos fornecidos"
+            "description": "Bad request"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get all images",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "link": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "date": {
+                        "type": "string",
+                        "format": "date"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     },
-    "/usuarios/{id}": {
-      "get": {
-        "summary": "Obter informações de um usuário pelo ID",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Informações do usuário retornadas com sucesso"
-          },
-          "404": {
-            "description": "Usuário não encontrado"
+    "/gallery/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
         }
-      },
+      ],
       "put": {
-        "summary": "Atualizar informações de um usuário pelo ID",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
+        "summary": "Update an image",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Usuario"
+                "type": "object",
+                "properties": {
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Informações do usuário atualizadas com sucesso"
+            "description": "Image updated"
           },
           "404": {
-            "description": "Usuário não encontrado"
+            "description": "Image not found"
           }
         }
       },
       "delete": {
-        "summary": "Excluir um usuário pelo ID",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
+        "summary": "Delete an image",
         "responses": {
-          "204": {
-            "description": "Usuário excluído com sucesso"
+          "200": {
+            "description": "Image deleted"
           },
           "404": {
-            "description": "Usuário não encontrado"
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "Usuario": {
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "format": "email"
+            "description": "Image not found"
           }
         }
       }

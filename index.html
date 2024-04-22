@@ -47,9 +47,9 @@
             <button class="x" onclick="put.close()">X</button>
             <h2>Edit a photo:</h2>
             <form id="put_submit">
-                <label for="id">Id:<input id="post_id" type="number" required></label>
-                <label for="link">Link:<input id="post_link"type="text" required></label>
-                <label for="creator">Title:<input type="text" required></label>
+                <label for="id">Id:<input id="put_id" type="number" required></label>
+                <label for="link">Link:<input id="put_link"type="text" required></label>
+                <label for="title">Title:<input id="put_title" type="text" required></label>
                 <input id="put_submit" type="submit">
             </form>
             <h4>Keep sure that all labels are correct.</h4>
@@ -58,7 +58,7 @@
             <button class="x" onclick="delet.close()">X</button>
             <h2>Delete a photo:</h2>
             <form id="delete_submit">
-                <label for="id">Id:<input type="number"></label>
+                <label for="id">Id:<input type="number" id="delete_id"></label>
                 <input id="delete_submit" type="submit">
             </form>
             <h4>Keep sure that all labels are correct.</h4>
